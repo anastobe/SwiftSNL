@@ -12,7 +12,7 @@ struct WelcomeView: View {
         ZStack {
             Image("welcom_bg")
                 .resizable()
-                .scaledToFill()
+                .scaledToFill() 
         
             
         }
