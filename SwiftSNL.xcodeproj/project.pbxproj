@@ -34,28 +34,16 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
-				UICommon/UIExtension.swift,
 			);
 			target = D02AC87E2DA7EBE9004B3621 /* SwiftSNL */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-		D02AC8ED2DA93448004B3621 /* Exceptions for "SwiftSNL" folder in "Copy Bundle Resources" phase from "SwiftSNL" target */ = {
-			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
-			buildPhase = D02AC87D2DA7EBE9004B3621 /* Resources */;
-			membershipExceptions = (
-				UICommon/UIExtension.swift,
-			);
-		};
-/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		D02AC8812DA7EBE9004B3621 /* SwiftSNL */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				D02AC8D42DA8EDFE004B3621 /* Exceptions for "SwiftSNL" folder in "SwiftSNL" target */,
-				D02AC8ED2DA93448004B3621 /* Exceptions for "SwiftSNL" folder in "Copy Bundle Resources" phase from "SwiftSNL" target */,
 			);
 			path = SwiftSNL;
 			sourceTree = "<group>";
