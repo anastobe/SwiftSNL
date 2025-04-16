@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import CountryPicker
 
 struct SignInView: View {
     
     @State var txtMobile: String = ""
+    @State var isShowPicker: Bool = false
+    @State var countryObj: Country?
     
     var body: some View {
         
@@ -42,13 +45,24 @@ struct SignInView: View {
                     
                     HStack{
                         Button{
+                            isShowPicker = true
                             
                         }label: {
-                            Image("")
-                                  Text("+91")
-                                .font(.customfont(.medium, fontSize: 18))
-                                .foregroundColor(.primaryText)
+//                            Image("")
+
+                            if let countryObj = countryObj{
+                                
+                                Text("\(countryObj.isoCode.getFlag())")
+                              .font(.customfont(.medium, fontSize: 35))
+
+                                
+                               Text("+\(countryObj.phoneCode)")
+                              .font(.customfont(.medium, fontSize: 18))
+                              .foregroundColor(.primaryText)
+                            }
+                            
                         }
+                        
                         
                         TextField("Enter Mobile", text: $txtMobile)
                             .frame(minWidth: 0, maxWidth: .infinity)
@@ -66,8 +80,8 @@ struct SignInView: View {
                         Spacer()
                     }
                     
-                    Button {
-                        
+                    NavigationLink {
+                        LoginView()
                     } label: {
                         
                         Image("google_logo")
@@ -86,7 +100,7 @@ struct SignInView: View {
                     .padding(.bottom, 10)
                     
                     Button {
-                        
+
                     } label: {
                         
                         Image("fb_logo")
@@ -111,6 +125,12 @@ struct SignInView: View {
                 .padding(.top, .topInsets + .screenWidth * 1)
             }
         }
+        .onAppear{
+            self.countryObj = Country(phoneCode: "91", isoCode:"IN")
+        }
+        .sheet(isPresented: $isShowPicker, content: {
+            CountryPickerUI(country: $countryObj)
+        })
         .navigationTitle("")
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
@@ -125,3 +145,4 @@ struct SignInView_Previews: PreviewProvider {
         SignInView()
     }
 }
+
